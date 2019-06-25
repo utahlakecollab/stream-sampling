@@ -25,6 +25,11 @@ table, thead, tbody {
 }
 
 #mapid {
-    height: 60rem;
-    width: 100%;
+    height: 40rem;
+    margin: 0 1rem;
+}
+
+@media screen (max-width: 768) {
+    h1 { font-size: 1.2rem; }
+    header span, footer span { font-size: .8rem; }
 }
