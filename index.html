@@ -12,7 +12,7 @@
 
 <body>
   <div id="main">
-    <table id="stream" class="table table-striped table-bordered" width="100%">
+    <table id="stream" class="table table-striped table-bordered table-hover table-sm" width="100%">
       <thead class="table-dark">
         <tr>
           <th scope="col">Site ID</th>
@@ -24,7 +24,7 @@
           <th scope="col">Longitude</th>
           <th scope="col">Access Notes: March</th>
           <th scope="col">Access Notes: July</th>
-          <th>Access Notes: October</th>
+          <th scope="col">Access Notes: October</th>
         </tr>
       </thead>
       <tbody>
@@ -33,43 +33,8 @@
     </table>
   </div>
   <!-- Optional JavaScript -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-    <script type='text/javascript'>
-      var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/18NouPc0AcnQ4A2jWsTtcHqWU2vXd80cqZHpVTcBv4w8/edit?usp=sharing';
-
-      function init() {
-        Tabletop.init({
-          key: publicSpreadsheetUrl,
-          callback: showInfo,
-          simpleSheet: true,
-          order: 'SiteID'
-        })
-      }
-
-      function showInfo(data, tabletop) {
-        var stream = data;
-        console.log(data);
-
-        document.querySelector('tbody').innerHTML = data.map(({ SiteID, Site_Name, Region, Reach, Site_Type, Latitude, Longitude, Access_Notes_March, Access_Notes_July, Access_Notes_October }) => {
-          return `
-            <tr>
-              <td>${SiteID}</td>
-              <td>${Site_Name}</td>
-              <td>${Region}</td>
-              <td>${Reach}</td>
-              <td>${Site_Type}</td>
-              <td>${Latitude}</td>
-              <td>${Longitude}</td>
-              <td>${Access_Notes_March}</td>
-              <td>${Access_Notes_July}</td>
-              <td>${Access_Notes_October}</td>
-            </tr>
-            `
-        }).join('\n')
-      }
-
-      window.addEventListener('DOMContentLoaded', init)
-    </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <script src="js/stream-sampling.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
