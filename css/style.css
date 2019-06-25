@@ -7,6 +7,11 @@ header {
     padding: 1rem;
 }
 
+header span {
+    display: block;
+    float: right;
+}
+
 header h1 {
     font-size: 1.5rem;
 }
@@ -17,4 +22,9 @@ table, thead, tbody {
 
 .table-sm td, .table-sm th {
     padding: .8rem;
+}
+
+#mapid {
+    height: 60rem;
+    width: 100%;
 }
