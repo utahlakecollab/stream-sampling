@@ -2,24 +2,31 @@
   <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
-    <script src="js/sheetsee.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/sss.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
   </head>
   <body>
-  <div id="placeholder"></div>
+  <div id="main">
 
-  <script id="placeholder" type="text/html">
-    // template if you so desire!
-  </script>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <script type='text/javascript'>
+    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/18NouPc0AcnQ4A2jWsTtcHqWU2vXd80cqZHpVTcBv4w8/edit?usp=sharing';
 
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-        var URL = '2PACX-1vQpuFMFGZdTf3QYhqMit4W9Zrga55Djn0TWZB0xIkjVRsoWx3rs9jKqHlb1hNhCofY1Guj71--uHKkL'
-        Tabletop.init( { key: URL, callback: myData, simpleSheet: true } )
-    })
-    function myData (data) {
-      // All the sheetsee things you want to do!
+    function init() {
+      Tabletop.init({
+        key: publicSpreadsheetUrl,
+        callback: showInfo,
+        simpleSheet: true,
+        order: 'SiteID'
+      })
     }
+
+    function showInfo(data, tabletop) {
+      alert('Successfully processed!')
+      console.log(data);
+    }
+
+    window.addEventListener('DOMContentLoaded', init)
   </script>
   </body>
 </html>
