@@ -29,7 +29,14 @@ table, thead, tbody {
     margin: 0 1rem;
 }
 
-@media screen (max-width: 768) {
-    h1 { font-size: 1.2rem; }
-    header span, footer span { font-size: .8rem; }
+/* Media Queries */
+
+@media screen and (max-width: 992px) {
+    header h1, footer h1 { font-size: 1.2rem; }
+    header span, footer span { font-size: 1rem; }
+}
+
+@media screen and (max-width: 768px) {
+    header h1, footer h1 { font-size: 1rem; }
+    header span, footer span { font-size: .8rem; float: none; margin-top: 1rem; }
 }
