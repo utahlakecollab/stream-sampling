@@ -1,0 +1,60 @@
+<html>
+<script src="https://bossanova.uk/jexcel/v3/jexcel.js"></script>
+<link rel="stylesheet" href="https://bossanova.uk/jexcel/v3/jexcel.css" type="text/css" />
+
+<script src="https://bossanova.uk/jtools/v2/japp.js"></script>
+<link rel="stylesheet" href="https://bossanova.uk/jtools/v2/japp.css" type="text/css" />
+
+<div id="spreadsheet"></div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>
+    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/18NouPc0AcnQ4A2jWsTtcHqWU2vXd80cqZHpVTcBv4w8/edit?usp=sharing';
+
+    function init() {
+        Tabletop.init({
+            key: publicSpreadsheetUrl,
+            callback: showInfo,
+            simpleSheet: true,
+            order: 'SiteID'
+        })
+    }
+
+    function showInfo(data, tabletop) {
+        console.log(data);
+
+        var data = tabletop.data;
+        document.querySelector('table').innerHTML = data.map(({ SiteID, Site_Name, Region, Reach, Site_Type }) => {
+            return `
+        <tr>
+          <td>${SiteID}</td>
+          <td>${Site_Name}</td>
+          <td>${Region}</td>
+          <td>${Reach}</td>
+          <td>${Site_Type}</td>
+        </tr>
+        `
+        }).join('\n')
+    }
+
+    var data = [
+            ['102',	'CURRANT CK AT US6 XING 1.5MI W OF GOSHEN', 'South Valley',	'2', 'Mainstem'],
+            ['103', 'Saratoga Springs at Cedar Valley', 'Utah Valley', '2', 'Tributary'],
+            ['104', 'CURRANT CK BL MONA RES AT MOUTH OF CANYON', 'South Valley', '2', 'Mainstem']
+        ];
+
+    jexcel(document.getElementById('spreadsheet'), {
+        data: data,
+        columns: [
+            { type: 'text', title: 'Site ID', width: 120 },
+            { type: 'text', title: 'Site Name', width: 500 },
+            { type: 'text', title: 'Region', width: 120 },
+            { type: 'text', title: 'Reach', width: 80 },
+            { type: 'text', title: 'Site Type', width: 120 },
+        ]
+    });
+
+    window.addEventListener('DOMContentLoaded', init)
+</script>
+
+</html>

@@ -1,62 +1,81 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
   <div id="main">
-    <table id="stream" width="100%">
-      <thead>
-        <th>SiteID</th>
-        <th>Site Name</th>
-        <th>Region</th>
-        <th>Reach</th>
-        <th>Site Type</th>
+    <table id="stream" class="table table-striped" width="100%">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">SiteID</th>
+          <th scope="col">Site Name</th>
+          <th scope="col">Region</th>
+          <th scope="col">Reach</th>
+          <th scope="col">Site Type</th>
+          <th scope="col">Latitude</th>
+          <th scope="col">Longitude</th>
+          <th scope="col">Access Notes: March</th>
+          <th scope="col">Access Notes: July</th>
+          <th>Access Notes: October</th>
+        </tr>
       </thead>
       <tbody>
 
       </tbody>
     </table>
   </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-  <script type='text/javascript'>
-    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/18NouPc0AcnQ4A2jWsTtcHqWU2vXd80cqZHpVTcBv4w8/edit?usp=sharing';
+  <!-- Optional JavaScript -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script type='text/javascript'>
+      var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/18NouPc0AcnQ4A2jWsTtcHqWU2vXd80cqZHpVTcBv4w8/edit?usp=sharing';
 
-    function init() {
-      Tabletop.init({
-        key: publicSpreadsheetUrl,
-        callback: showInfo,
-        simpleSheet: true,
-        order: 'SiteID'
-      })
-    }
+      function init() {
+        Tabletop.init({
+          key: publicSpreadsheetUrl,
+          callback: showInfo,
+          simpleSheet: true,
+          order: 'SiteID'
+        })
+      }
 
-    function showInfo(data, tabletop) {
-      var stream = data;
-      console.log(data);
-      
-      for (var i = 0; i < data.length; i++) {
-        document.querySelector('table').innerHTML = data.map(({ SiteID, Site_Name, Region, Reach, Site_Type }) => {
+      function showInfo(data, tabletop) {
+        var stream = data;
+        console.log(data);
+
+        document.querySelector('tbody').innerHTML = data.map(({ SiteID, Site_Name, Region, Reach, Site_Type, Latitude, Longitude, Access_Notes_March, Access_Notes_July, Access_Notes_October }) => {
           return `
-          <tr>
-            <td>${SiteID}</td>
-            <td>${Site_Name}</td>
-            <td>${Region}</td>
-            <td>${Reach}</td>
-            <td>${Site_Type}</td>
-          </tr>
-          `
+            <tr>
+              <td>${SiteID}</td>
+              <td>${Site_Name}</td>
+              <td>${Region}</td>
+              <td>${Reach}</td>
+              <td>${Site_Type}</td>
+              <td>${Latitude}</td>
+              <td>${Longitude}</td>
+              <td>${Access_Notes_March}</td>
+              <td>${Access_Notes_July}</td>
+              <td>${Access_Notes_October}</td>
+            </tr>
+            `
         }).join('\n')
       }
 
-      document.querySelector('table').appendChild(tr)
-    }
-
-    window.addEventListener('DOMContentLoaded', init)
-  </script>
+      window.addEventListener('DOMContentLoaded', init)
+    </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
