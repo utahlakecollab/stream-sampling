@@ -10,7 +10,7 @@ function init() {
 }
 
 function showInfo(data, tabletop) {
-  var data = console.log(data)
+  console.log(data)
 }
 
 window.addEventListener('DOMContentLoaded', init)

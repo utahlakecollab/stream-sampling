@@ -2,17 +2,17 @@ body {
     font-size: 13px;
 }
 
-header {
+header, footer {
     /* height: 2rem; */
     padding: 1rem;
 }
 
-header span {
+header span, footer span {
     display: block;
     float: right;
 }
 
-header h1 {
+header h1, footer h1 {
     font-size: 1.5rem;
 }
 
