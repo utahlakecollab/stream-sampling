@@ -29,6 +29,10 @@ table, thead, tbody {
     margin: 0 1rem;
 }
 
+.leaflet-popup-content p {
+    margin: 8px 0;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 992px) {
