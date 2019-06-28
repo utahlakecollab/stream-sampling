@@ -17,7 +17,7 @@ function showInfo (data, tabletop) {
       <tr>
         <td>${SiteID}</td>
         <td>${Site_Name}</td>
-        <td class="maps"><a href="https://www.google.com/maps/place/@${Latitude},${Longitude},19z/data=!3m1!1e3" target="_blank">${Latitude}, ${Longitude}</a></td>
+        <td><a href="https://www.google.com/maps/place/@${Latitude},${Longitude},19z/data=!3m1!1e3" target="_blank">${Latitude}, ${Longitude}</a></td>
         <td>${Region}</td>
         <td>${Reach}</td>
         <td>${Site_Type}</td>

@@ -30,7 +30,7 @@ table, thead, tbody {
 }
 
 .leaflet-popup-content p {
-    margin: 8px 0;
+    margin: 8px 0 16px 0;
 }
 
 /* Media Queries */

@@ -17,15 +17,48 @@ function showInfo(data, tabletop) {
     }).addTo(mymap)
       .bindPopup(
         `
-          <p><strong>Site ID:</strong> ${SiteID}</p>
-          <p><strong>Reach</strong> ${Reach}</p>
-          <p><strong>Site Name:</strong> ${Site_Name}</p>
-          <p class="maps"><strong>Lat/Lon:</strong> <a href="https://www.google.com/maps/place/@${Latitude},${Longitude},19z/data=!3m1!1e3" target="_blank">${Latitude}, ${Longitude}</a></p>
-          <p><strong>Region:</strong> ${Region}</p>
-          <p><strong>Site Type:</strong> ${Site_Type}</p>
-          <p><strong>Access Notes (March):</strong> ${Access_Notes_March}</p>
-          <p><strong>Access Notes (July):</strong> ${Access_Notes_July}</p>
-          <p><strong>Access Notes (October):</strong> ${Access_Notes_October}</p>
+        <div class="container">
+        <div class="row">
+          <div class="col">
+            <p><strong>Site ID</strong><br />
+              ${SiteID}
+          </div>
+
+          <div class="col">
+            <p><strong>Reach</strong><br />
+              ${Reach}</p>
+          </div>
+        </div>
+        <div class="row">
+          <p><strong>Site Name</strong><br />
+              ${Site_Name}</p>
+        </div>
+        
+        <p><strong>Lat/Lon</strong><br />
+          <a href="https://www.google.com/maps/place/@${Latitude},${Longitude},19z/data=!3m1!1e3" target="_blank">${Latitude},
+            ${Longitude}</a></p>
+      
+        <div class="row">
+          <div class="col">
+            <p><strong>Region</strong><br />
+              ${Region}</p>
+          </div>
+      
+          <div class="col">
+            <p><strong>Site Type</strong><br />
+              ${Site_Type}</p>
+          </div>
+        </div>
+      
+        <details>Access Notes (March)</strong><br />
+        <details>${Access_Notes_March}</details>
+      
+        <strong>Access Notes (July)</strong><br />
+        <details>${Access_Notes_July}</details>
+        <strong>Access Notes (October)</strong><br />
+        <details>${Access_Notes_October}</details>
+        </div>
+      </div>
         `
       )
   })
